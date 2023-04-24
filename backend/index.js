@@ -9,11 +9,11 @@ const uploadRouter = require('./controllers/uploadController')
 const dotenv = require('dotenv').config()
 const app = express()
 
-
-mongoose.connect(process.env.MONGO_URL)
-.then(() => {
-    console.log('db connection is a success')
-})
+const dbURI =
+  "mongodb+srv://mohit:test12345@cluster0.vbujabu.mongodb.net/backEnd_project";
+mongoose.connect(dbURI).then(() => {
+  console.log("db connection is a success");
+});
 
 app.use('/images', express.static('public/images'))
 
